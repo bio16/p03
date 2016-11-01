@@ -4,6 +4,9 @@
 # Uso la librería igraph y pandas.
 import igraph
 import pandas as pd
+from copy import deepcopy
+import matplotlib.pyplot as plt
+from random import shuffle
 
 # ------- Cargo la informacion del problema ------------- #
 
@@ -34,18 +37,30 @@ for i in range(len(dolphins_sex)):
 
 colours = ['blue','red','green','yellow','orange', 'cyan']
 
-# ----- Fast greedy community detection ----- #
+graph_aux = deepcopy(graph)
 
+# ----- Fast greedy community detection ----- #
 com = graph.community_fastgreedy()
 clustering = com.as_clustering()
 membership = clustering.membership
 for i in range(len(graph.vs)):
+    graph.vs[i]["membership"] = membership[i]
     graph.vs[i]["color"] = colours[membership[i]]
 
-# Grafo Fruchterman - Reingold
+# Grafo
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Fast_greedy.eps')
+
+# Modularidad
 print 'Fast greedy modularity:', graph.modularity(membership)
+
+# Modularidad en red recableada
+plt.figure(1)
+random_modularity = []
+for i in range(1000):
+    graph_aux.rewire(1000)
+    random_modularity.append(graph_aux.modularity(membership))
+plt.hist(random_modularity, normed = True)
 
 # ----- Edge betweenness community detection ----- #
 
@@ -53,32 +68,68 @@ com = graph.community_edge_betweenness(directed = False)
 clustering = com.as_clustering()
 membership = clustering.membership
 for i in range(len(graph.vs)):
+    graph.vs[i]["membership"] = membership[i]
     graph.vs[i]["color"] = colours[membership[i]]
-# Grafo Fruchterman - Reingold
+
+# Grafo
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Edge_betweenness.eps')
+
+# Modularidad
 print 'Edge betweenness modularity: ', graph.modularity(membership)
 
+random_modularity = []
+for i in range(1000):
+    graph_aux.rewire(1000)
+    random_modularity.append(graph_aux.modularity(membership))
+plt.hist(random_modularity, normed = True)
 
 # ----- Infomap community detection ----- #
 
 com = graph.community_infomap()
 membership = com.membership
 for i in range(len(graph.vs)):
+    graph.vs[i]["membership"] = membership[i]
     graph.vs[i]["color"] = colours[membership[i]]
-# Grafo Fruchterman - Reingold
+
+# Grafo
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Infomap.eps')
+
+# Modularidad
 print 'Infomap modularity: ', graph.modularity(membership)
+
+random_modularity = []
+for i in range(1000): 
+    graph_aux.rewire(1000)
+    random_modularity.append(graph_aux.modularity(membership))
+plt.hist(random_modularity, normed = True)
 
 # ----- Louvain community detection ----- #
 
 com = graph.community_multilevel()
 membership = com.membership
 for i in range(len(graph.vs)):
+    graph.vs[i]["membership"] = membership[i]
     graph.vs[i]["color"] = colours[membership[i]]
-# Grafo Fruchterman - Reingold
+
+# Grafo
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Louvain.eps')
+
+# Modularidad
 print 'Louvain: ', graph.modularity(membership)
+
+#plt.figure(4)
+random_modularity = []
+for i in range(1000):
+    graph_aux.rewire(1000)
+    random_modularity.append(graph_aux.modularity(membership))
+
+plt.hist(random_modularity, normed = True)
+
+plt.xlabel('Modularidad')
+plt.title('Red recableada')
+plt.grid('on')
+plt.savefig('Modularidad_random.eps')
 
