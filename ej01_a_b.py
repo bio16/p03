@@ -56,6 +56,7 @@ print 'Fast greedy modularity:', graph.modularity(membership)
 
 # Modularidad en red recableada
 plt.figure(1)
+plt.axes([0.10, 0.20, 0.80, 0.70])
 random_modularity = []
 for i in range(1000):
     graph_aux.rewire(1000)
@@ -83,6 +84,7 @@ for i in range(1000):
     graph_aux.rewire(1000)
     random_modularity.append(graph_aux.modularity(membership))
 plt.hist(random_modularity, normed = True)
+
 
 # ----- Infomap community detection ----- #
 
@@ -128,8 +130,11 @@ for i in range(1000):
 
 plt.hist(random_modularity, normed = True)
 
-plt.xlabel('Modularidad')
-plt.title('Red recableada')
+plt.xlabel('Modularidad', fontsize = 20)
+plt.title('Red recableada', fontsize = 20)
 plt.grid('on')
+plt.xticks(fontsize = 20)
+plt.yticks(fontsize = 20)
 plt.savefig('Modularidad_random.eps')
+plt.show()
 
