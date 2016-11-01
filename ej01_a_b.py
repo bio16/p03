@@ -32,43 +32,53 @@ for i in range(len(dolphins_sex)):
                 vs["color"] = "green"
                 vs["sex"] = None
 
-colours = ['blue','red','green','yellow','orange']
+colours = ['blue','red','green','yellow','orange', 'cyan']
 
 # ----- Fast greedy community detection ----- #
 
 com = graph.community_fastgreedy()
 clustering = com.as_clustering()
+membership = clustering.membership
 for i in range(len(graph.vs)):
-    graph.vs[i]["color"] = colours[clustering.membership[i]]
+    graph.vs[i]["color"] = colours[membership[i]]
 
 # Grafo Fruchterman - Reingold
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Fast_greedy.eps')
+print 'Fast greedy modularity:', graph.modularity(membership)
 
 # ----- Edge betweenness community detection ----- #
 
 com = graph.community_edge_betweenness(directed = False)
 clustering = com.as_clustering()
+membership = clustering.membership
 for i in range(len(graph.vs)):
-    graph.vs[i]["color"] = colours[clustering.membership[i]]
+    graph.vs[i]["color"] = colours[membership[i]]
 # Grafo Fruchterman - Reingold
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Edge_betweenness.eps')
+print 'Edge betweenness modularity: ', graph.modularity(membership)
+
 
 # ----- Infomap community detection ----- #
 
 com = graph.community_infomap()
+membership = com.membership
 for i in range(len(graph.vs)):
-    graph.vs[i]["color"] = colours[clustering.membership[i]]
+    graph.vs[i]["color"] = colours[membership[i]]
 # Grafo Fruchterman - Reingold
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Infomap.eps')
+print 'Infomap modularity: ', graph.modularity(membership)
 
 # ----- Louvain community detection ----- #
 
 com = graph.community_multilevel()
+membership = com.membership
 for i in range(len(graph.vs)):
-    graph.vs[i]["color"] = colours[clustering.membership[i]]
+    graph.vs[i]["color"] = colours[membership[i]]
 # Grafo Fruchterman - Reingold
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Louvain.eps')
+print 'Louvain: ', graph.modularity(membership)
+
