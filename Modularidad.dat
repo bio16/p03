@@ -1,4 +1,9 @@
 Fast greedy modularity: 0.495490684704
+Silhouette: 0.183927879332
 Edge betweenness modularity:  0.519382144694
-Infomap modularity:  0.528519441478
+Silhouette: 0.33811036907
+Infomap modularity:  0.524741901032
+Silhouette: 0.328398277107
 Louvain:  0.518531703651
+Silhouette: 0.294044180891
+

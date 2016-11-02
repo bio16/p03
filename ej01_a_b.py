@@ -7,6 +7,8 @@ import pandas as pd
 from copy import deepcopy
 import matplotlib.pyplot as plt
 from random import shuffle
+import numpy as np
+import math
 
 # ------- Cargo la informacion del problema ------------- #
 
@@ -39,6 +41,36 @@ colours = ['blue','red','green','yellow','orange', 'cyan']
 
 graph_aux = deepcopy(graph)
 
+def silhouette(graph_aux2, membership):
+
+    silhouette_per_vertex = []
+    membership_set = set(membership)
+
+    for i in range(len(graph_aux2.vs)):
+
+       average_distance = {}
+
+       for j in range(len(graph_aux2.vs)):
+
+           try:
+               average_distance[graph_aux2.vs[j]['membership']].append(graph_aux2.shortest_paths_dijkstra(i,j)[0][0])
+           except:
+	       average_distance[graph_aux2.vs[j]['membership']] = []
+               average_distance[graph_aux2.vs[j]['membership']].append(graph_aux2.shortest_paths_dijkstra(i,j)[0][0])
+
+       a = np.mean(average_distance[graph_aux2.vs[i]['membership']])
+       
+       b_list = [np.mean(average_distance[key]) for key in membership_set if key != graph_aux2.vs[i]['membership']]
+       b = min(b_list)
+
+       if (b - a) != 0.00:
+           silhouette_per_vertex.append(float(b - a)/max(a,b))
+       else:
+           silhouette_per_vertex.append(0.00)
+        
+    return np.mean(silhouette_per_vertex)
+
+
 # ----- Fast greedy community detection ----- #
 com = graph.community_fastgreedy()
 clustering = com.as_clustering()
@@ -51,17 +83,31 @@ for i in range(len(graph.vs)):
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Fast_greedy.eps')
 
-# Modularidad
+# Modularidad y Silhouette
 print 'Fast greedy modularity:', graph.modularity(membership)
+print 'Silhouette:', silhouette(graph, membership)
 
-# Modularidad en red recableada
 plt.figure(1)
 plt.axes([0.10, 0.20, 0.80, 0.70])
+plt.figure(2)
+plt.axes([0.10, 0.20, 0.80, 0.70])
+
+# Modularidad y solhouette en red recableada
+graph_aux = deepcopy(graph)
 random_modularity = []
+random_silhouette = []
 for i in range(1000):
     graph_aux.rewire(1000)
     random_modularity.append(graph_aux.modularity(membership))
+    sil = silhouette(graph_aux, membership)
+    if math.isnan(sil) == False:
+        random_silhouette.append(sil)
+
+plt.figure(1)
 plt.hist(random_modularity, normed = True)
+
+plt.figure(2)
+plt.hist(random_silhouette, normed = True)
 
 # ----- Edge betweenness community detection ----- #
 
@@ -78,13 +124,25 @@ igraph.plot(graph, layout = layout, target = 'Edge_betweenness.eps')
 
 # Modularidad
 print 'Edge betweenness modularity: ', graph.modularity(membership)
+print 'Silhouette:', silhouette(graph, set(membership))
 
+
+# Modularidad y solhouette en red recableada
+graph_aux = deepcopy(graph)
 random_modularity = []
+random_silhouette = []
 for i in range(1000):
     graph_aux.rewire(1000)
     random_modularity.append(graph_aux.modularity(membership))
+    sil = silhouette(graph_aux, membership)
+    if math.isnan(sil) == False:
+        random_silhouette.append(sil)
+
+plt.figure(1)
 plt.hist(random_modularity, normed = True)
 
+plt.figure(2)
+plt.hist(random_silhouette, normed = True)
 
 # ----- Infomap community detection ----- #
 
@@ -100,12 +158,25 @@ igraph.plot(graph, layout = layout, target = 'Infomap.eps')
 
 # Modularidad
 print 'Infomap modularity: ', graph.modularity(membership)
+print 'Silhouette:', silhouette(graph, set(membership))
 
+# Modularidad y solhouette en red recableada
+graph_aux = deepcopy(graph)
 random_modularity = []
-for i in range(1000): 
+random_silhouette = []
+for i in range(1000):
     graph_aux.rewire(1000)
     random_modularity.append(graph_aux.modularity(membership))
+    sil = silhouette(graph_aux, membership)
+    if math.isnan(sil) == False:
+        random_silhouette.append(sil)
+
+plt.figure(1)
 plt.hist(random_modularity, normed = True)
+
+plt.figure(2)
+plt.hist(random_silhouette, normed = True)
+
 
 # ----- Louvain community detection ----- #
 
@@ -121,20 +192,41 @@ igraph.plot(graph, layout = layout, target = 'Louvain.eps')
 
 # Modularidad
 print 'Louvain: ', graph.modularity(membership)
+print 'Silhouette:', silhouette(graph, set(membership))
 
-#plt.figure(4)
+# Modularidad y solhouette en red recableada
+graph_aux = deepcopy(graph)
 random_modularity = []
+random_silhouette = []
 for i in range(1000):
     graph_aux.rewire(1000)
     random_modularity.append(graph_aux.modularity(membership))
+    sil = silhouette(graph_aux, membership)
+    if math.isnan(sil) == False:
+        random_silhouette.append(sil)
 
+plt.figure(1)
 plt.hist(random_modularity, normed = True)
 
+plt.figure(2)
+plt.hist(random_silhouette, normed = True)
+
+plt.figure(1)
 plt.xlabel('Modularidad', fontsize = 20)
 plt.title('Red recableada', fontsize = 20)
 plt.grid('on')
 plt.xticks(fontsize = 20)
 plt.yticks(fontsize = 20)
 plt.savefig('Modularidad_random.eps')
+
+plt.figure(2)
+plt.xlabel('Silhouette', fontsize = 20)
+plt.title('Red recableada', fontsize = 20)
+plt.grid('on')
+plt.xticks(fontsize = 20)
+plt.yticks(fontsize = 20)
+plt.savefig('Silhouette_random.eps')
+
+
 plt.show()
 
