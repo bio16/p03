@@ -36,13 +36,11 @@ for i in range(len(dolphins_sex)):
             except:
                 vs["color"] = "green"
                 vs["sex"] = None
-
 colours = ['blue','red','green','yellow','orange', 'cyan']
 
 graph_aux = deepcopy(graph)
 
 def silhouette(graph_aux2, membership):
-
     silhouette_per_vertex = []
     membership_set = set(membership)
 
@@ -55,7 +53,7 @@ def silhouette(graph_aux2, membership):
            try:
                average_distance[graph_aux2.vs[j]['membership']].append(graph_aux2.shortest_paths_dijkstra(i,j)[0][0])
            except:
-	       average_distance[graph_aux2.vs[j]['membership']] = []
+               average_distance[graph_aux2.vs[j]['membership']] = []
                average_distance[graph_aux2.vs[j]['membership']].append(graph_aux2.shortest_paths_dijkstra(i,j)[0][0])
 
        a = np.mean(average_distance[graph_aux2.vs[i]['membership']])
@@ -84,8 +82,8 @@ layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Fast_greedy.eps')
 
 # Modularidad y Silhouette
-print 'Fast greedy modularity:', graph.modularity(membership)
-print 'Silhouette:', silhouette(graph, membership)
+print('Fast greedy modularity:', graph.modularity(membership))
+print('Silhouette:', silhouette(graph, membership))
 
 plt.figure(1)
 plt.axes([0.10, 0.20, 0.80, 0.70])
@@ -123,8 +121,8 @@ layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Edge_betweenness.eps')
 
 # Modularidad
-print 'Edge betweenness modularity: ', graph.modularity(membership)
-print 'Silhouette:', silhouette(graph, set(membership))
+print('Edge betweenness modularity: ', graph.modularity(membership))
+print('Silhouette:', silhouette(graph, set(membership)))
 
 
 # Modularidad y solhouette en red recableada
@@ -157,8 +155,8 @@ layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Infomap.eps')
 
 # Modularidad
-print 'Infomap modularity: ', graph.modularity(membership)
-print 'Silhouette:', silhouette(graph, set(membership))
+print('Infomap modularity: ', graph.modularity(membership))
+print('Silhouette:', silhouette(graph, set(membership)))
 
 # Modularidad y solhouette en red recableada
 graph_aux = deepcopy(graph)
@@ -191,8 +189,8 @@ layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'Louvain.eps')
 
 # Modularidad
-print 'Louvain: ', graph.modularity(membership)
-print 'Silhouette:', silhouette(graph, set(membership))
+print('Louvain: ', graph.modularity(membership))
+print('Silhouette:', silhouette(graph, set(membership)))
 
 # Modularidad y solhouette en red recableada
 graph_aux = deepcopy(graph)
