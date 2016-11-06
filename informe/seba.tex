@@ -1,5 +1,8 @@
 \section{Partición en clusters}
 
+\par Implementamos diferentes algoritmos para la detección de comunidades en la red de delfines. La asignación de cada algoritmo se puede observar en la figura \ref{fig:Layouts_clusters}, en la cual se puede observar que todos los algoritmos detectan entre 4 y 6 comunidades presentes en la red, aunque en algunos casos aparecen comunidades compuestas por solo dos delfines, es decir, de un tamaño considerablemente menor que el las restantes, lo cual se podría considerar la absorción de esta pequeña comunidad por parte de otra de mayor tamaño.
+\par En la tabla \red{table:Modularidad} calculamos la modularidad y el silhouette dada por cada algoritmo, 
+
 \begin{figure}
 \centering
 \includegraphics[scale = 0.2]{figuras/Edge_betweenness}
@@ -14,17 +17,17 @@
 
 \begin{table}
 \centering
-\begin{tabular}{c c}
+\begin{tabular}{c c c}
 \hline \hline
-Algoritmo & Modularidad \\
+Algoritmo & Modularidad & Silhouette \\
 \hline
-Fast greddy & 0.495 \\
-Infomap & 0.529 \\
-Edge-betweenness & 0.519 \\
-Louvain & 0.519 \\
+Edge-betweenness & 0.519 & 0.338 \\
+Fast greddy & 0.495 & 0.184 \\
+Louvain & 0.519 & 0.294 \\
+Infomap & 0.529 & 0.328 \\
 \hline\hline
 \end{tabular}
-\caption{Modularidad de las particiones dadas por diferentes algoritmos.}
+\caption{Modularidad y Silhouette de las particiones dadas por diferentes algoritmos.}
 \label{table:Modularidad}
 \end{table}
 
@@ -32,6 +35,7 @@ Louvain & 0.519 \\
 \begin{figure}
 \centering
 \includegraphics[scale = 0.5]{figuras/Modularidad_random}
-\caption{Modularidad recableando en forma aleatoria, manteniendo la categoría dada por los algoritmos de detección de particiones.}
+\includegraphics[scale = 0.5]{figuras/Silhouette_random}
+\caption{Modularidad y Silhouette recableando en forma aleatoria, manteniendo la pertenencia a cada cluster dada por los algoritmos de detección de particiones.Se puede observar que la probabilidad de obtener los valores de la tabla \ref{table:Modularidad} dada una reconexión aleatoria es prácticamente nula.}
 \label{fig:Modularidad_random}
 \end{figure}
