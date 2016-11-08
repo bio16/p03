@@ -8,8 +8,17 @@ from random import shuffle
 import numpy as np
 import math
 #--------------------------------------------------------
-def fprobs(g, comms):
-    clustering = comms['greedy'].as_clustering()
+def fprobs(g, comms, aname='greedy'):
+    """
+    - g:
+    graph
+    - comms:
+    dict containing the communities detected by different 
+    algorithms.
+    - aname:
+    algorithm name
+    """
+    clustering = comms[aname].as_clustering()
     membership = clustering.membership
     set_memb = np.array(list(set(membership)))
     # frequentist probability
@@ -70,31 +79,16 @@ comms = {
 'louvain'       : graph.community_multilevel(),
 }
 
-fp = fprobs(graph, comms)
-#clustering = comms['greedy'].as_clustering()
-#membership = clustering.membership
-#set_memb = np.array(list(set(membership)))
-## frequentist probability
-#fprob = np.zeros(shape=(set_sex.size,set_memb.size), dtype=np.float)
-#for i in range(len(graph.vs)):
-#    graph.vs[i]["membership"] = membership[i]
-#    #graph.vs[i]["color"] = colours[membership[i]]
-#
-## let's sample both labels:
-#for v in graph.vs:
-#    # catch the membership-index 
-#    i_m = (v['membership']==set_memb).nonzero()[0][0]
-#    # catch the sex-index 
-#    i_s = (v['sex']==set_sex).nonzero()[0][0]
-#    fprob[i_s,i_m] += 1.0
-## normalize 
-#fprob /= fprob.sum()
-#
-#fp = {
-#'conj'       : fprob,
-#'sex'        : np.sum(fprob, axis=1),
-#'membership' : np.sum(fprob, axis=0),
-#}
+fp = fprobs(graph, comms, aname='greedy')
+log_pp = np.log(fp['conj']) - np.log(np.outer(fp['sex'],fp['membership']))
+
+I = 0.0
+for i_s in range(fp['conj'].shape[0]):
+    for i_m in range(fp['conj'].shape[1]):
+        I += fp['conj'][i_s,i_m]*log_pp[i_s,i_m]
+        if np.isnan(I):
+            print("fuck!", i_s, i_m)
+            break
 
 
 #EOF
