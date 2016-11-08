@@ -9,6 +9,28 @@ import numpy as np
 import math
 from pylab import figure, close
 import matplotlib.cm as cm
+import random
+
+def count_intergender_links(g, list_genders):
+    """
+    cuenta cuantos links entre generos tengo
+    """
+    random.shuffle(list_genders)
+    for v, i in zip(g.vs, range(len(g.vs))):
+        v['sex'] = list_genders[i]
+
+    # Cuento los links entre géneros, luego del sorteo
+    n_intergender = 0
+    for v in g.vs:
+        nns = v.neighbors() # nearest neighbors
+        for nn in nns:
+            # excluimos todos los sexos indefinidos
+            if v['sex'] != nn['sex'] and \
+              v['sex'] != None and nn['sex'] != None: 
+                n_intergender += 1
+
+    return n_intergender
+
 
 def contour_2d(fig, ax, x, y, mat, hscale='log', **kargs):
     cb_label = kargs.get('cb_label', 'points per bin square')
