@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.16)  3 NOV 2016 11:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.4)  8 NOV 2016 12:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -439,6 +439,14 @@ LaTeX Info: Redefining \cite on input line 694.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen138
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2014/04/23 v1.1a Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 137.
 ) (./informe.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
@@ -447,21 +455,21 @@ LaTeX Info: Redefining \% on input line 10.
 )
 \openout1 = `informe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Info: Redefining \. on input line 20.
-LaTeX Info: Redefining \% on input line 20.
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count114
 \scratchdimen=\dimen139
@@ -537,124 +545,82 @@ LaTeX Info: Redefining \% on input line 2.
 \openout3 = `informe.toc'.
 
 
-(./seba.tex
-Package epstopdf Info: Source file: <figuras/Edge_betweenness.eps>
-(epstopdf)                    date: 2016-11-03 11:41:19
-(epstopdf)                    size: 65020 bytes
-(epstopdf)             Output file: <figuras/Edge_betweenness-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2016-11-03 11:41:26
-(epstopdf)                    size: 18630 bytes
-(epstopdf)             Command: <repstopdf --outfile=figuras/Edge_betweenness-e
-ps-converted-to.pdf figuras/Edge_betweenness.eps>
-(epstopdf)             \includegraphics on input line 5.
-Package epstopdf Info: Output file is already uptodate.
+(./seba.tex <figuras/graph_Edge_betweenness.png, id=10, 602.25pt x 602.25pt>
+File: figuras/graph_Edge_betweenness.png Graphic file (type png)
 
-<figuras/Edge_betweenness-eps-converted-to.pdf, id=10, 602.25pt x 602.25pt>
-File: figuras/Edge_betweenness-eps-converted-to.pdf Graphic file (type pdf)
+<use figuras/graph_Edge_betweenness.png>
+Package pdftex.def Info: figuras/graph_Edge_betweenness.png used on input line 
+8.
+(pdftex.def)             Requested size: 132.4954pt x 132.4954pt.
 
-<use figuras/Edge_betweenness-eps-converted-to.pdf>
-Package pdftex.def Info: figuras/Edge_betweenness-eps-converted-to.pdf used on 
-input line 5.
-(pdftex.def)             Requested size: 120.44786pt x 120.44786pt.
-Package epstopdf Info: Source file: <figuras/Fast_greedy.eps>
-(epstopdf)                    date: 2016-11-03 11:41:19
-(epstopdf)                    size: 65036 bytes
-(epstopdf)             Output file: <figuras/Fast_greedy-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-11-03 11:41:26
-(epstopdf)                    size: 18607 bytes
-(epstopdf)             Command: <repstopdf --outfile=figuras/Fast_greedy-eps-co
-nverted-to.pdf figuras/Fast_greedy.eps>
-(epstopdf)             \includegraphics on input line 6.
-Package epstopdf Info: Output file is already uptodate.
+<figuras/graph_Fast_greedy.png, id=11, 602.25pt x 602.25pt>
+File: figuras/graph_Fast_greedy.png Graphic file (type png)
 
-<figuras/Fast_greedy-eps-converted-to.pdf, id=11, 602.25pt x 602.25pt>
-File: figuras/Fast_greedy-eps-converted-to.pdf Graphic file (type pdf)
+<use figuras/graph_Fast_greedy.png>
+Package pdftex.def Info: figuras/graph_Fast_greedy.png used on input line 9.
+(pdftex.def)             Requested size: 132.4954pt x 132.4954pt.
 
-<use figuras/Fast_greedy-eps-converted-to.pdf>
-Package pdftex.def Info: figuras/Fast_greedy-eps-converted-to.pdf used on input
- line 6.
-(pdftex.def)             Requested size: 120.44786pt x 120.44786pt.
-Package epstopdf Info: Source file: <figuras/Louvain.eps>
-(epstopdf)                    date: 2016-11-03 11:41:19
-(epstopdf)                    size: 65214 bytes
-(epstopdf)             Output file: <figuras/Louvain-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-11-03 11:41:26
-(epstopdf)                    size: 18606 bytes
-(epstopdf)             Command: <repstopdf --outfile=figuras/Louvain-eps-conver
-ted-to.pdf figuras/Louvain.eps>
-(epstopdf)             \includegraphics on input line 7.
-Package epstopdf Info: Output file is already uptodate.
+<figuras/graph_Louvain.png, id=12, 602.25pt x 602.25pt>
+File: figuras/graph_Louvain.png Graphic file (type png)
 
-<figuras/Louvain-eps-converted-to.pdf, id=12, 602.25pt x 602.25pt>
-File: figuras/Louvain-eps-converted-to.pdf Graphic file (type pdf)
+<use figuras/graph_Louvain.png>
+Package pdftex.def Info: figuras/graph_Louvain.png used on input line 10.
+(pdftex.def)             Requested size: 132.4954pt x 132.4954pt.
 
-<use figuras/Louvain-eps-converted-to.pdf>
-Package pdftex.def Info: figuras/Louvain-eps-converted-to.pdf used on input lin
-e 7.
-(pdftex.def)             Requested size: 120.44786pt x 120.44786pt.
-Package epstopdf Info: Source file: <figuras/Infomap.eps>
-(epstopdf)                    date: 2016-11-03 11:41:19
-(epstopdf)                    size: 65010 bytes
-(epstopdf)             Output file: <figuras/Infomap-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-11-03 11:41:27
-(epstopdf)                    size: 18602 bytes
-(epstopdf)             Command: <repstopdf --outfile=figuras/Infomap-eps-conver
-ted-to.pdf figuras/Infomap.eps>
-(epstopdf)             \includegraphics on input line 8.
-Package epstopdf Info: Output file is already uptodate.
+<figuras/graph_Infomap.png, id=13, 602.25pt x 602.25pt>
+File: figuras/graph_Infomap.png Graphic file (type png)
 
-<figuras/Infomap-eps-converted-to.pdf, id=13, 602.25pt x 602.25pt>
-File: figuras/Infomap-eps-converted-to.pdf Graphic file (type pdf)
+<use figuras/graph_Infomap.png>
+Package pdftex.def Info: figuras/graph_Infomap.png used on input line 11.
+(pdftex.def)             Requested size: 132.4954pt x 132.4954pt.
 
-<use figuras/Infomap-eps-converted-to.pdf>
-Package pdftex.def Info: figuras/Infomap-eps-converted-to.pdf used on input lin
-e 8.
-(pdftex.def)             Requested size: 120.44786pt x 120.44786pt.
-Package epstopdf Info: Source file: <figuras/Modularidad_random.eps>
-(epstopdf)                    date: 2016-11-03 11:41:19
-(epstopdf)                    size: 28715 bytes
-(epstopdf)             Output file: <figuras/Modularidad_random-eps-converted-t
-o.pdf>
-(epstopdf)                    date: 2016-11-03 11:42:10
-(epstopdf)                    size: 14042 bytes
-(epstopdf)             Command: <repstopdf --outfile=figuras/Modularidad_random
--eps-converted-to.pdf figuras/Modularidad_random.eps>
-(epstopdf)             \includegraphics on input line 34.
-Package epstopdf Info: Output file is already uptodate.
+<figuras/Modularidad_random.png, id=14, 578.16pt x 433.62pt>
+File: figuras/Modularidad_random.png Graphic file (type png)
 
-<figuras/Modularidad_random-eps-converted-to.pdf, id=14, 578.16pt x 433.62pt>
-File: figuras/Modularidad_random-eps-converted-to.pdf Graphic file (type pdf)
-
-<use figuras/Modularidad_random-eps-converted-to.pdf>
-Package pdftex.def Info: figuras/Modularidad_random-eps-converted-to.pdf used o
-n input line 34.
+<use figuras/Modularidad_random.png>
+Package pdftex.def Info: figuras/Modularidad_random.png used on input line 34.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
-Package epstopdf Info: Source file: <figuras/Silhouette_random.eps>
-(epstopdf)                    date: 2016-11-03 11:41:19
-(epstopdf)                    size: 30945 bytes
-(epstopdf)             Output file: <figuras/Silhouette_random-eps-converted-to
-.pdf>
-(epstopdf)                    date: 2016-11-03 11:42:10
-(epstopdf)                    size: 16004 bytes
-(epstopdf)             Command: <repstopdf --outfile=figuras/Silhouette_random-
-eps-converted-to.pdf figuras/Silhouette_random.eps>
-(epstopdf)             \includegraphics on input line 35.
-Package epstopdf Info: Output file is already uptodate.
 
-<figuras/Silhouette_random-eps-converted-to.pdf, id=15, 578.16pt x 433.62pt>
-File: figuras/Silhouette_random-eps-converted-to.pdf Graphic file (type pdf)
+<figuras/Silhouette_random.png, id=16, 578.16pt x 433.62pt>
+File: figuras/Silhouette_random.png Graphic file (type png)
 
-<use figuras/Silhouette_random-eps-converted-to.pdf>
-Package pdftex.def Info: figuras/Silhouette_random-eps-converted-to.pdf used on
- input line 35.
+<use figuras/Silhouette_random.png>
+Package pdftex.def Info: figuras/Silhouette_random.png used on input line 35.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
-) (./raul.tex)
-(./mariela.tex) (./jimmy.tex) [1 <./figuras/Edge_betweenness-eps-converted-to.p
-df> <./figuras/Fast_greedy-eps-converted-to.pdf> <./figuras/Louvain-eps-convert
-ed-to.pdf> <./figuras/Infomap-eps-converted-to.pdf>] [2 <./figuras/Modularidad_
-random-eps-converted-to.pdf> <./figuras/Silhouette_random-eps-converted-to.pdf>
-] [3] (./informe.aux
+) (./raul.tex) (./mariela.tex) (./jimmy.tex
+[1] [2 <./figuras/graph_Edge_betweenness.png> <./figuras/graph_Fast_greedy.png>
+ <./figuras/graph_Louvain.png> <./figuras/graph_Infomap.png>] [3 <./figuras/Mod
+ularidad_random.png> <./figuras/Silhouette_random.png>]
+<figuras/p12_greedy.png, id=30, 351.9549pt x 231.9867pt>
+File: figuras/p12_greedy.png Graphic file (type png)
+
+<use figuras/p12_greedy.png>
+Package pdftex.def Info: figuras/p12_greedy.png used on input line 22.
+(pdftex.def)             Requested size: 175.97702pt x 115.99306pt.
+
+<figuras/p12_betweenness.png, id=31, 351.9549pt x 208.8603pt>
+File: figuras/p12_betweenness.png Graphic file (type png)
+
+<use figuras/p12_betweenness.png>
+Package pdftex.def Info: figuras/p12_betweenness.png used on input line 23.
+(pdftex.def)             Requested size: 175.97702pt x 104.42989pt.
+
+<figuras/p12_infomap.png, id=32, 351.9549pt x 200.9106pt>
+File: figuras/p12_infomap.png Graphic file (type png)
+
+<use figuras/p12_infomap.png>
+Package pdftex.def Info: figuras/p12_infomap.png used on input line 24.
+(pdftex.def)             Requested size: 175.97702pt x 100.45505pt.
+
+<figuras/p12_louvain.png, id=33, 351.9549pt x 208.8603pt>
+File: figuras/p12_louvain.png Graphic file (type png)
+
+<use figuras/p12_louvain.png>
+Package pdftex.def Info: figuras/p12_louvain.png used on input line 25.
+(pdftex.def)             Requested size: 175.97702pt x 104.42989pt.
+) [4 <./figuras/p12_greedy.png> <./figuras/p12_betweenness.png> <./figuras/p12_
+infomap.png> <./figuras/p12_louvain.png>]
+(./informe.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 LaTeX Info: Redefining \. on input line 10.
@@ -665,23 +631,29 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 5281 strings out of 493105
- 76577 string characters out of 6137072
- 150948 words of memory out of 5000000
- 8640 multiletter control sequences out of 15000+600000
- 10428 words of font info for 37 fonts, out of 8000000 for 9000
+ 5346 strings out of 493105
+ 77608 string characters out of 6137073
+ 155919 words of memory out of 5000000
+ 8708 multiletter control sequences out of 15000+600000
+ 11120 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,7n,38p,448b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,38p,836b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on informe.pdf (4 pages, 163776 bytes).
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
+.pfb>
+Output written on informe.pdf (5 pages, 660145 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 85 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

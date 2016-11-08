@@ -1,19 +1,17 @@
 \section{Partición en clusters}
 
 \par Implementamos diferentes algoritmos para la detección de comunidades en la red de delfines. La asignación de cada algoritmo se puede observar en la figura \ref{fig:Layouts_clusters}, en la cual se puede observar que todos los algoritmos detectan entre 4 y 6 comunidades presentes en la red, aunque en algunos casos aparecen comunidades compuestas por solo dos delfines, es decir, de un tamaño considerablemente menor que el las restantes, lo cual se podría considerar la absorción de esta pequeña comunidad por parte de otra de mayor tamaño.
-\par En la tabla \red{table:Modularidad} calculamos la modularidad y el silhouette dada por cada algoritmo, 
+\par En la tabla \ref{table:Modularidad} calculamos la modularidad y el silhouette dada por cada algoritmo. Para cuantificar qué tan pertinente es la partición en clusters de esta red, estudiamos estos mismos observables recablenado en forma aleatoria la red original, manteniendo la membresía a las particiones inalterable. Eso nos resultó en una distribución de valores de modularidad y silhouette de la figura \ref{fig:Modularidad_random}. Si se compara esta distribución con los valores de la tabla \ref{table:Modularidad}, se puede concluir que tanto la modularidad como el silhouette es significativamente mayor en la red actual que la esperada por azar (hipótesis nula), con lo cual decimos que esta red se describir correctamente como una red compuesta por comunas.
 
 \begin{figure}
 \centering
-\includegraphics[scale = 0.2]{graph_Edge_betweenness}
-\includegraphics[scale = 0.2]{graph_Fast_greedy} \\
-\includegraphics[scale = 0.2]{graph_Louvain}
-\includegraphics[scale = 0.2]{graph_Infomap}
-\caption{Layouts indicando el cluster asignado por cada algoritmo.}
+\includegraphics[scale = 0.22]{graph_Edge_betweenness}
+\includegraphics[scale = 0.22]{graph_Fast_greedy} \\
+\includegraphics[scale = 0.22]{graph_Louvain}
+\includegraphics[scale = 0.22]{graph_Infomap}
+\caption{Layouts indicando el cluster asignado por cada algoritmo. De izquierda a derecha, y arriba hacia abajo: Edge betweenness, Fast greedy, Louvain e Infomap.}
 \label{fig:Layouts_clusters}
 \end{figure}
-
-\section{Modularidad}
 
 \begin{table}
 \centering
@@ -27,15 +25,14 @@ Louvain & 0.519 & 0.294 \\
 Infomap & 0.529 & 0.328 \\
 \hline\hline
 \end{tabular}
-\caption{Modularidad y Silhouette de las particiones dadas por diferentes algoritmos.}
+\caption{Modularidad y silhouette de las particiones dadas por diferentes algoritmos.}
 \label{table:Modularidad}
 \end{table}
-
 
 \begin{figure}
 \centering
 \includegraphics[scale = 0.5]{Modularidad_random}
 \includegraphics[scale = 0.5]{Silhouette_random}
-\caption{Modularidad y Silhouette recableando en forma aleatoria, manteniendo la pertenencia a cada cluster dada por los algoritmos de detección de particiones.Se puede observar que la probabilidad de obtener los valores de la tabla \ref{table:Modularidad} dada una reconexión aleatoria es prácticamente nula.}
+\caption{Modularidad y silhouette recableando en forma aleatoria, manteniendo la pertenencia a cada cluster dada por los algoritmos de detección de particiones.Se puede observar que la probabilidad de obtener los valores de la tabla \ref{table:Modularidad} dada una reconexión aleatoria es prácticamente nula.}
 \label{fig:Modularidad_random}
 \end{figure}
