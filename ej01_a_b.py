@@ -79,7 +79,7 @@ for i in range(len(graph.vs)):
 
 # Grafo
 layout = graph.layout_fruchterman_reingold()
-igraph.plot(graph, layout = layout, target = 'Fast_greedy.eps')
+igraph.plot(graph, layout = layout, target = 'graph_Fast_greedy.png')
 
 # Modularidad y Silhouette
 print('Fast greedy modularity:', graph.modularity(membership))
@@ -95,6 +95,7 @@ graph_aux = deepcopy(graph)
 random_modularity = []
 random_silhouette = []
 for i in range(1000):
+    print(i)
     graph_aux.rewire(1000)
     random_modularity.append(graph_aux.modularity(membership))
     sil = silhouette(graph_aux, membership)
@@ -118,7 +119,7 @@ for i in range(len(graph.vs)):
 
 # Grafo
 layout = graph.layout_fruchterman_reingold()
-igraph.plot(graph, layout = layout, target = 'Edge_betweenness.eps')
+igraph.plot(graph, layout = layout, target = 'graph_Edge_betweenness.png')
 
 # Modularidad
 print('Edge betweenness modularity: ', graph.modularity(membership))
@@ -152,7 +153,7 @@ for i in range(len(graph.vs)):
 
 # Grafo
 layout = graph.layout_fruchterman_reingold()
-igraph.plot(graph, layout = layout, target = 'Infomap.eps')
+igraph.plot(graph, layout = layout, target = 'graph_Infomap.png')
 
 # Modularidad
 print('Infomap modularity: ', graph.modularity(membership))
@@ -186,7 +187,7 @@ for i in range(len(graph.vs)):
 
 # Grafo
 layout = graph.layout_fruchterman_reingold()
-igraph.plot(graph, layout = layout, target = 'Louvain.eps')
+igraph.plot(graph, layout = layout, target = 'graph_Louvain.png')
 
 # Modularidad
 print('Louvain: ', graph.modularity(membership))
@@ -197,6 +198,7 @@ graph_aux = deepcopy(graph)
 random_modularity = []
 random_silhouette = []
 for i in range(1000):
+    print(i)
     graph_aux.rewire(1000)
     random_modularity.append(graph_aux.modularity(membership))
     sil = silhouette(graph_aux, membership)
@@ -215,7 +217,7 @@ plt.title('Red recableada', fontsize = 20)
 plt.grid('on')
 plt.xticks(fontsize = 20)
 plt.yticks(fontsize = 20)
-plt.savefig('Modularidad_random.eps')
+plt.savefig('Modularidad_random.png')
 
 plt.figure(2)
 plt.xlabel('Silhouette', fontsize = 20)
@@ -223,7 +225,7 @@ plt.title('Red recableada', fontsize = 20)
 plt.grid('on')
 plt.xticks(fontsize = 20)
 plt.yticks(fontsize = 20)
-plt.savefig('Silhouette_random.eps')
+plt.savefig('Silhouette_random.png')
 
 
 plt.show()
