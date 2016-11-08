@@ -56,11 +56,26 @@ for aname in comms.keys():
     #--- fig
     fig = figure(1, figsize=(5,3))
     ax  = fig.add_subplot(111)
-    #ax.contourf(fp['conj'],)
-    ax.imshow(fp['conj'], cmap=cm.gray_r, interpolation='none')
+    # title
+    ax.set_title('I(C1,C2)=%2.2f'%I)
+    opt = {
+    'cmap': cm.gray_r,                # gray-scale
+    'vmin': 0., #kargs.get('cbmin',1),
+    'vmax': 0.3, #kargs.get('cbmax',1000),
+    'alpha': 1.0,
+    }
+    im = ax.imshow(fp['conj'], interpolation='none', **opt)
+    sm = cm.ScalarMappable(cmap=im.cmap, norm=im.norm)
+    sm.set_array(fp['conj'])
+    #--- colorbar
+    axcb = fig.colorbar(sm)
+    axcb.set_label('prob conjunta', fontsize=14)
+    sm.set_clim(vmin=opt['vmin'], vmax=opt['vmax'])
     # black: high values
     # white: low values
     ax.set_ylim(-0.49,2.49)
+    ax.set_xlabel('comunas de '+aname)
+    ax.set_ylabel('sexo (0=M, 1=None, 2=F)')
     fig.savefig('p12_'+aname+'.png', dpi=100, bbox_inches='tight')
     close(fig)
 
