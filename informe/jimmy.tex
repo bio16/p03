@@ -5,19 +5,17 @@
 
 
 %--- doc
-\section{Relaci\'on entre g\'enero y estructura de comunidades}
+\section{Relaci\'on entre comunidades}
 \label{sec:info_mutua}
 
-Para cuantificar la relaci\'on entre el g\'enero de los delfines y la estructura de comunidades que fueron deducidas por los diferentes algoritmos (e.g. {\it Greedy}), empleamos la definici\'on de {\it Informacion Mutua}:
-
+%Para cuantificar la relaci\'on entre el g\'enero de los delfines y la estructura de comunidades que fueron deducidas por los diferentes algoritmos (e.g. {\it Greedy}), empleamos la definici\'on de {\it Informacion Mutua}:
+Para cuantificar la relaci\'on entre comunidades de la red, definidas por dos conjuntos etiquetas de la red, $\{c1\}$ y $\{c2\}$, podemos usar la definici\'on de {\it Informacion Mutua}:
 \begin{align}
     I(\{c1\},\{c2\}) = \sum_{c1,c2} p(c1,c2) log \frac{p(c1,c2)}{p(c1) p(c2)},
 \label{eq:info_mutua}
 \end{align}
 
-donde $c1$ y $c2$ son etiquetas de las comunas del grafo.
-Y definimos la informaci\'on mutua normalizada,
-
+y definimos la informaci\'on mutua normalizada:
 \begin{align}
     I_n (\{c1\},\{c2\}) &= 2 I(\{c1\},\{c2\}) / ( H(\{c1\}) + H(\{c2\}) ) \nonumber \\
     H(\{c1\}) &= - \sum_{c1} p(c1) log(p(c1))
@@ -26,9 +24,26 @@ Y definimos la informaci\'on mutua normalizada,
 
 Las comunas construidas en el presente grafo fueron deducidas usando los algoritmos {\it greedy, betweenness, infomap} y {\it louvain}.
 La definici\'on \ref{eq:info_mutua} cuantifica cuanto se departa la informaci\'on real del grafo, respecto de la cantidad de informaci\'on que brinda una grafo cuyas comunas estan descorrelacionadas del g\'enero. \jmc{che Seba, a ver si esto tiene sentido}.
-En el caso particular en que $\{c1\}$ y $\{c2\}$ son el mismo conjunto, obtenemos la informaci\'on mutua normalizada $I_n=1$.
+%--- valor de In en dos casos extremos
+En el caso particular en que los conjuntos $\{c1\}$ y $\{c2\}$ representen variable independientes, entonces se dice que el conjunto $\{c1\}$ no da brinda ninguna informaci\'on sobre el conjunto $\{c2\}$, y de acuerdo a la ec. \ref{eq:info_mutua_norm} obtenemos $I_n=0$.
+Y en el caso particular en que $\{c1\}$ y $\{c2\}$ son el mismo conjunto, obtenemos la informaci\'on mutua normalizada $I_n=1$.
 
 
+\jmc{Raul, creo q lo tuyo encaja antes de esta linea?}\\
+\subsection{Relaci\'on de las comunas con g\'enero}
+\label{sec:relacion_con_genero}
+
+Para cuantificar la relaci\'on entre las comunas deducidas por los diferentes algoritmos (e.g. {\it greedy}) y el g\'enero, usamos la ec. \ref{eq:info_mutua_norm} identificando a las comunas con $\{c1\}$ y a las etiquetas de g\'enero con $\{c2\}$.
+%--- ahora veamos nuestro caso
+En la figura \ref{fig:prob_conj} mostramos, en el encabezado de cada panel, los valores de la informaci\'on mutua $I_n$, los cuales caen en el intervalo $(0.10 - 0.21)$, es decir que $I_n \ll 1$ en todos los casos; esto nos dice que el conjunto de comunas ($\{c1\}$) deducido por cierto algoritmo (e.g. {\it greedy}) no nos da mucha informaci\'on sobre el g\'enero ($\{c2\}$).
+%--- test de consistencia
+Como test de consistencia para esto  \'ultimo, hicimos sorteos del g\'enero de cada nodo(manteniendo constante el n\'umero total de masculinos y femeninos por separado), y contabilizamos el n\'umero de enlaces entre pares de g\'eneros distintos $n_ig$.
+En la figura \ref{fig:hist_sort_sex} mostramos un histograma de $n_ig$, y en l\'inea negra el valor asociado para la red real (original).
+De aqui vemos que el valor de la red real esta apartado $\sim 1 \sigma$ del valor medio del histograma; lo cual significa que hay una ligera tendencia a que las comunas tengan muchos ejemplares de un sexo en particular.
+Esto \'ultimo es consistente con el bajo valor de $I_n$ discutido mas arriba.
+
+
+%--- prob conjunta `p12` para c/algoritmo
 \begin{figure}
     \centering
     \img{0.5}{p12_greedy}
@@ -42,6 +57,7 @@ En el caso particular en que $\{c1\}$ y $\{c2\}$ son el mismo conjunto, obtenemo
 \end{figure}
 
 
+%--- histograma de sorteos de sexo
 \begin{figure}
     \centering
     \img{0.6}{hist_sort_sex}
@@ -49,7 +65,7 @@ En el caso particular en que $\{c1\}$ y $\{c2\}$ son el mismo conjunto, obtenemo
     Distribuci\'on del n\'umero de enlaces entre g\'eneros diferentes, para diferentes realizaciones de sorteo del sexo de los nodos de la red (manteniendo constante el n\'umero de masculinos y femeninos por separado).
     La l\'inea negra muestra el valor que corresponde a la red original que caracterizamos en este trabajo.
     La zona sombreada en celeste representa la regi\'on que cubre la desviaci\'on est\'andar respecto de la media.
-    El valor de la red original (o real) se aparta $1 \sigma$ respecto del centro de la distribuci\'on, lo cual muestra una tendencia a la existencia de comunas que tienen muchos ejemplares de un sexo en particular.
+    El valor de la red original (o real) se aparta $\sim 1 \sigma$ respecto del centro de la distribuci\'on, lo cual muestra una ligera tendencia a la existencia de comunas que tienen muchos ejemplares de un sexo en particular.
     Esto es consistente con el bajo valor ($\ll 1$) de la informaci\'on mutua $I_n$ (ver ec. \ref{eq:info_mutua_norm} y Secc. \ref{sec:info_mutua}).
     }
 \label{fig:hist_sort_sex}
