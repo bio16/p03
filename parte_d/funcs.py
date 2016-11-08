@@ -15,7 +15,6 @@ def count_intergender_links(g, list_genders):
     """
     cuenta cuantos links entre generos tengo
     """
-    random.shuffle(list_genders)
     for v, i in zip(g.vs, range(len(g.vs))):
         v['sex'] = list_genders[i]
 
@@ -29,7 +28,8 @@ def count_intergender_links(g, list_genders):
               v['sex'] != None and nn['sex'] != None: 
                 n_intergender += 1
 
-    return n_intergender
+    # el nro efectivo es la mitad
+    return n_intergender/2
 
 
 def contour_2d(fig, ax, x, y, mat, hscale='log', **kargs):

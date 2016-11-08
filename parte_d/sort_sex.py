@@ -10,6 +10,7 @@ import math
 from pylab import figure, close
 import matplotlib.cm as cm
 import funcs as ff
+import random
 #--------------------------------------------------------
 
 # ------- Cargo la informacion del problema ------------- #
@@ -42,7 +43,29 @@ for v in graph.vs:
 list_genders = ['m'] * nsex['m'] + ['f']*nsex['f'] + \
                   ['none'] * nsex['none']
 
+nconf = 15000
+# nro de links entre generos (para red original)
+ninter_orig = ff.count_intergender_links(graph, list_genders)
+# coleccion (entre diferentes realizaciones del sorteo de genero) del 
+# nro de link entre generos
+ninter = [] 
+for conf in range(nconf):
+    random.shuffle(list_genders)
+    ninter += [ ff.count_intergender_links(graph, list_genders) ]
 
-n = ff.count_intergender_links(graph, list_genders)
+#--- histogram of realizations
+fig = figure(1, figsize=(6,4))
+ax  = fig.add_subplot(111)
+
+ax.hist(ninter, bins=25, normed=False, label='N=%d'%nconf)
+ax.axvline(x=ninter_orig, lw=3, c='black', label='original')
+
+ax.set_xlabel('nro de link entre generos')
+ax.set_ylabel('#')
+ax.grid(True)
+ax.legend(loc='best')
+fig.savefig('hist_sort_sex.png', dpi=135, bbox_inches='tight')
+close(fig)
+
 
 #EOF
