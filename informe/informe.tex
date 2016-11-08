@@ -10,12 +10,16 @@
 \usepackage{authblk}
 \usepackage{natbib}
 \usepackage{multirow}
-
+\usepackage{color}   % For color text: \color command
 
 \captionsetup[table]{name=Tabla}
 \renewcommand{\thetable}{\Roman{table}}
 \newcommand{\mean}[1]{\left\langle#1\right\rangle}
 %\newcommand{\eqref}[1]{Ec.~\ref{#1}}
+
+\graphicspath{
+{figuras/},
+} % Lugar donde encontrar las figuras generales (se puede poner uno en cada cap{\'{\i}}tulo)
 
 \begin{document}
 \begin{titlepage}

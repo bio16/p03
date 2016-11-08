@@ -1,0 +1,29 @@
+%--- commands/defs
+\newcommand{\img}[2]{\includegraphics[scale=#1]{{#2}.png}}
+\newcommand{\jmc}[1]{{\color{red}{(JM: #1)}}}   % jimmy comment
+
+%--- doc
+\section{Relaci\'on entre g\'enero y estructura de comunidades}
+
+Para cuantificar la relaci\'on entre el g\'enero de los delfines y la estructura de comunidades que fueron deducidas por los diferentes algoritmos (e.g. {\it Greedy}), empleamos la definici\'on de {\it Informacion Mutua}:
+
+\begin{align}
+    I(\{c1\},\{c2\}) = \sum_{c1,c2} p(c1,c2) log \frac{p(c1,c2)}{p(c1) p(c2)},
+\label{eq:info_mutua}
+\end{align}
+
+donde $c1$ y $c2$ son etiquetas de las comunas del grafo.
+Las comunas construidas en el presente grafo fueron deducidas usando los algoritmos {\it greedy, betweenness, infomap} y {\it louvain}.
+La definici\'on \ref{eq:info_mutua} cuantifica cuanto se departa la informaci\'on real del grafo, respecto de la cantidad de informaci\'on que brinda una grafo cuyas comunas estan descorrelacionadas del g\'enero. \jmc{che Seba, a ver si esto tiene sentido}
+
+
+\begin{figure}
+    \centering
+    \img{0.5}{p12_greedy}
+    \img{0.5}{p12_betweenness}
+    \img{0.5}{p12_infomap}
+    \img{0.5}{p12_louvain}
+    \caption{Valores de las matrices de probabilidad conjunto para los algoritmos {\it greedy} (izquierda, arriba) {\it betweenness}, etc... }
+\label{fig:prob_conj}
+\end{figure}
+
