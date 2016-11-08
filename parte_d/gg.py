@@ -51,13 +51,16 @@ comms = {
 
 for aname in comms.keys():
     fp = ff.fprobs(graph, set_sex, comms, aname=aname)
-    I  = ff.information(fp['conj'], fp['sex'], fp['membership'])
+    I, Inorm  = ff.information(fp['conj'], fp['sex'], fp['membership'])
     print(aname, ': ', I)
     #--- fig
     fig = figure(1, figsize=(5,3))
     ax  = fig.add_subplot(111)
     # title
-    ax.set_title('I(C1,C2)=%2.2f'%I)
+    ax.set_title(
+    '$I = %2.2f$'%I + '\n'
+    '$I_n = %3.3f$'%Inorm
+    )
     opt = {
     'cmap': cm.gray_r,                # gray-scale
     'vmin': 0., #kargs.get('cbmin',1),

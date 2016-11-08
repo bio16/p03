@@ -2,8 +2,11 @@
 \newcommand{\img}[2]{\includegraphics[scale=#1]{{#2}.png}}
 \newcommand{\jmc}[1]{{\color{red}{(JM: #1)}}}   % jimmy comment
 
+
+
 %--- doc
 \section{Relaci\'on entre g\'enero y estructura de comunidades}
+\label{sec:info_mutua}
 
 Para cuantificar la relaci\'on entre el g\'enero de los delfines y la estructura de comunidades que fueron deducidas por los diferentes algoritmos (e.g. {\it Greedy}), empleamos la definici\'on de {\it Informacion Mutua}:
 
@@ -13,8 +16,17 @@ Para cuantificar la relaci\'on entre el g\'enero de los delfines y la estructura
 \end{align}
 
 donde $c1$ y $c2$ son etiquetas de las comunas del grafo.
+Y definimos la informaci\'on mutua normalizada,
+
+\begin{align}
+    I_n (\{c1\},\{c2\}) &= 2 I(\{c1\},\{c2\}) / ( H(\{c1\}) + H(\{c2\}) ) \nonumber \\
+    H(\{c1\}) &= - \sum_{c1} p(c1) log(p(c1))
+\label{eq:info_mutua_norm}
+\end{align}
+
 Las comunas construidas en el presente grafo fueron deducidas usando los algoritmos {\it greedy, betweenness, infomap} y {\it louvain}.
-La definici\'on \ref{eq:info_mutua} cuantifica cuanto se departa la informaci\'on real del grafo, respecto de la cantidad de informaci\'on que brinda una grafo cuyas comunas estan descorrelacionadas del g\'enero. \jmc{che Seba, a ver si esto tiene sentido}
+La definici\'on \ref{eq:info_mutua} cuantifica cuanto se departa la informaci\'on real del grafo, respecto de la cantidad de informaci\'on que brinda una grafo cuyas comunas estan descorrelacionadas del g\'enero. \jmc{che Seba, a ver si esto tiene sentido}.
+En el caso particular en que $\{c1\}$ y $\{c2\}$ son el mismo conjunto, obtenemos la informaci\'on mutua normalizada $I_n=1$.
 
 
 \begin{figure}
@@ -29,5 +41,18 @@ La definici\'on \ref{eq:info_mutua} cuantifica cuanto se departa la informaci\'o
 \label{fig:prob_conj}
 \end{figure}
 
+
+\begin{figure}
+    \centering
+    \img{0.6}{hist_sort_sex}
+    \caption{
+    Distribuci\'on del n\'umero de enlaces entre g\'eneros diferentes, para diferentes realizaciones de sorteo del sexo de los nodos de la red (manteniendo constante el n\'umero de masculinos y femeninos por separado).
+    La l\'inea negra muestra el valor que corresponde a la red original que caracterizamos en este trabajo.
+    La zona sombreada en celeste representa la regi\'on que cubre la desviaci\'on est\'andar respecto de la media.
+    El valor de la red original (o real) se aparta $1 \sigma$ respecto del centro de la distribuci\'on, lo cual muestra una tendencia a la existencia de comunas que tienen muchos ejemplares de un sexo en particular.
+    Esto es consistente con el bajo valor ($\ll 1$) de la informaci\'on mutua $I_n$ (ver ec. \ref{eq:info_mutua_norm} y Secc. \ref{sec:info_mutua}).
+    }
+\label{fig:hist_sort_sex}
+\end{figure}
 
 %EOF

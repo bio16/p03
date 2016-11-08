@@ -10,6 +10,7 @@ import math
 from pylab import figure, close
 import matplotlib.cm as cm
 import random
+from numpy import log, nan, dot
 
 def count_intergender_links(g, list_genders):
     """
@@ -99,12 +100,23 @@ def information(p12, p1, p2):
     """
     we are using:
     I({C1},{C2}) = \sum_{C1,C2} P(C1,C2) * log(P(C1,C2)/(P(C1)*P(C2)))
+    Inorm = 2*I({C1},{C2}) / (H1+H2),
+    where:
+    H1 = -\sum_i p1[i]*log(p1[i])
+    H2 = -\sum_i p2[i]*log(p2[i])
+    -- Output: 
+    returns `I` and `Inorm`
     """
     # log term
     log_pp = np.log(p12) - np.log(np.outer(p1,p2))
+    # information values
+    p1_, p2_ = p1[p1>0], p2[p2>0] # filter-out zeros
+    # the norm factor is a sum of two entropies (H1 and H2)
+    norm_factor = -dot(p1_, log(p1_)) + -dot(p2_, log(p2_))
     I = 0.0 # total mutual information
     for i_s in range(p12.shape[0]):
         for i_m in range(p12.shape[1]):
-            #NOTE: contribute to sum only if joint probability is >0.0
+            #NOTE: contribute to sum only if (joint) probability is >0.0
             I += p12[i_s,i_m]*log_pp[i_s,i_m] if p12[i_s,i_m]>0.0 else 0.0
-    return I
+
+    return I, (2.*I/norm_factor)
