@@ -18,8 +18,12 @@ def fprobs(g, comms, aname='greedy'):
     - aname:
     algorithm name
     """
-    clustering = comms[aname].as_clustering()
-    membership = clustering.membership
+    if not aname in ('louvain','infomap'):
+        clustering = comms[aname].as_clustering()
+        membership = clustering.membership
+    else:
+        membership = comms[aname].membership
+
     set_memb = np.array(list(set(membership)))
     # frequentist probability
     fprob = np.zeros(shape=(set_sex.size,set_memb.size), dtype=np.float)
@@ -43,6 +47,16 @@ def fprobs(g, comms, aname='greedy'):
     }
     return fp
 
+def information(p12, p1, p2):
+    log_pp = np.log(p12) - np.log(np.outer(p1,p2))
+    I = 0.0 # total mutual information
+    for i_s in range(p12.shape[0]):
+        for i_m in range(p12.shape[1]):
+            #NOTE: contribute to sum only if joint probability is >0.0
+            I += p12[i_s,i_m]*log_pp[i_s,i_m] if p12[i_s,i_m]>0.0 else 0.0
+    return I
+
+
 # ------- Cargo la informacion del problema ------------- #
 
 # Cargo en el objeto graph la red de dolphins.gml.
@@ -65,7 +79,6 @@ for i in range(len(dolphins_sex)):
         if vs['label'] == dolphin_name:
             vs['name'] = dolphin_name
             vs['sex'] = dolphin_sex if dolphin_sex in ('m','f') else 'none'
-            #vs['color'] = color_dict[vs['sex']] if vs['sex'] in ('m','f') else 'green'
 
 # catch the three sex types
 set_sex  = np.array(list(set([ v['sex'] for v in graph.vs ])))
@@ -79,16 +92,10 @@ comms = {
 'louvain'       : graph.community_multilevel(),
 }
 
-fp = fprobs(graph, comms, aname='greedy')
-log_pp = np.log(fp['conj']) - np.log(np.outer(fp['sex'],fp['membership']))
 
-I = 0.0
-for i_s in range(fp['conj'].shape[0]):
-    for i_m in range(fp['conj'].shape[1]):
-        I += fp['conj'][i_s,i_m]*log_pp[i_s,i_m]
-        if np.isnan(I):
-            print("fuck!", i_s, i_m)
-            break
-
+for aname in comms.keys():
+    fp = fprobs(graph, comms, aname=aname)
+    I  = information(fp['conj'], fp['sex'], fp['membership'])
+    print(aname, ': ', I)
 
 #EOF
