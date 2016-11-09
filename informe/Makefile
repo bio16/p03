@@ -1,12 +1,17 @@
-#!/bin/bash
+.PHONY: all informe figs
 src=informe
 
-default:
+default: informe all
+	
+informe:
 	pdflatex ${src}.tex
 
-all:
+figs:
 	# generar figs para parte d) (no demora nada)
 	cd ../parte_d && ./gg.py && ./sort_sex.py && cd -
-	pdflatex ${src}.tex
+	cd .. && python3 mutual_info.py && cd -
+
+
+all: figs informe
 
 #EOF
