@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.4)  8 NOV 2016 12:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.4)  8 NOV 2016 23:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -573,87 +573,94 @@ File: figuras/graph_Infomap.png Graphic file (type png)
 <use figuras/graph_Infomap.png>
 Package pdftex.def Info: figuras/graph_Infomap.png used on input line 11.
 (pdftex.def)             Requested size: 132.4954pt x 132.4954pt.
-
-<figuras/Modularidad_random.png, id=14, 578.16pt x 433.62pt>
+ [1]
+<figuras/Modularidad_random.png, id=19, 578.16pt x 433.62pt>
 File: figuras/Modularidad_random.png Graphic file (type png)
 
 <use figuras/Modularidad_random.png>
 Package pdftex.def Info: figuras/Modularidad_random.png used on input line 34.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<figuras/Silhouette_random.png, id=16, 578.16pt x 433.62pt>
+<figuras/Silhouette_random.png, id=21, 578.16pt x 433.62pt>
 File: figuras/Silhouette_random.png Graphic file (type png)
 
 <use figuras/Silhouette_random.png>
 Package pdftex.def Info: figuras/Silhouette_random.png used on input line 35.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 ) (./raul.tex) (./mariela.tex) (./jimmy.tex
-[1] [2 <./figuras/graph_Edge_betweenness.png> <./figuras/graph_Fast_greedy.png>
- <./figuras/graph_Louvain.png> <./figuras/graph_Infomap.png>] [3 <./figuras/Mod
-ularidad_random.png> <./figuras/Silhouette_random.png>]
-<figuras/p12_greedy.png, id=30, 351.9549pt x 231.9867pt>
+[2 <./figuras/graph_Edge_betweenness.png> <./figuras/graph_Fast_greedy.png> <./
+figuras/graph_Louvain.png> <./figuras/graph_Infomap.png>] [3 <./figuras/Modular
+idad_random.png> <./figuras/Silhouette_random.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+[4] <figuras/p12_greedy.png, id=39, 346.1733pt x 244.2726pt>
 File: figuras/p12_greedy.png Graphic file (type png)
 
 <use figuras/p12_greedy.png>
-Package pdftex.def Info: figuras/p12_greedy.png used on input line 22.
-(pdftex.def)             Requested size: 175.97702pt x 115.99306pt.
+Package pdftex.def Info: figuras/p12_greedy.png used on input line 50.
+(pdftex.def)             Requested size: 173.08621pt x 122.136pt.
 
-<figuras/p12_betweenness.png, id=31, 351.9549pt x 208.8603pt>
+<figuras/p12_betweenness.png, id=40, 346.1733pt x 211.0284pt>
 File: figuras/p12_betweenness.png Graphic file (type png)
 
 <use figuras/p12_betweenness.png>
-Package pdftex.def Info: figuras/p12_betweenness.png used on input line 23.
-(pdftex.def)             Requested size: 175.97702pt x 104.42989pt.
+Package pdftex.def Info: figuras/p12_betweenness.png used on input line 51.
+(pdftex.def)             Requested size: 173.08621pt x 105.51393pt.
 
-<figuras/p12_infomap.png, id=32, 351.9549pt x 200.9106pt>
+<figuras/p12_infomap.png, id=41, 346.1733pt x 211.0284pt>
 File: figuras/p12_infomap.png Graphic file (type png)
 
 <use figuras/p12_infomap.png>
-Package pdftex.def Info: figuras/p12_infomap.png used on input line 24.
-(pdftex.def)             Requested size: 175.97702pt x 100.45505pt.
+Package pdftex.def Info: figuras/p12_infomap.png used on input line 52.
+(pdftex.def)             Requested size: 173.08621pt x 105.51393pt.
 
-<figuras/p12_louvain.png, id=33, 351.9549pt x 208.8603pt>
+<figuras/p12_louvain.png, id=42, 346.1733pt x 211.0284pt>
 File: figuras/p12_louvain.png Graphic file (type png)
 
 <use figuras/p12_louvain.png>
-Package pdftex.def Info: figuras/p12_louvain.png used on input line 25.
-(pdftex.def)             Requested size: 175.97702pt x 104.42989pt.
-) [4 <./figuras/p12_greedy.png> <./figuras/p12_betweenness.png> <./figuras/p12_
+Package pdftex.def Info: figuras/p12_louvain.png used on input line 53.
+(pdftex.def)             Requested size: 173.08621pt x 105.51393pt.
+
+<figuras/hist_sort_sex.png, id=43, 407.38867pt x 285.33267pt>
+File: figuras/hist_sort_sex.png Graphic file (type png)
+
+<use figuras/hist_sort_sex.png>
+Package pdftex.def Info: figuras/hist_sort_sex.png used on input line 64.
+(pdftex.def)             Requested size: 244.43507pt x 171.20091pt.
+) [5 <./figuras/p12_greedy.png> <./figuras/p12_betweenness.png> <./figuras/p12_
 infomap.png> <./figuras/p12_louvain.png>]
-(./informe.aux
+[6 <./figuras/hist_sort_sex.png>] (./informe.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 LaTeX Info: Redefining \. on input line 10.
 LaTeX Info: Redefining \% on input line 10.
-)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) ) 
 Here is how much of TeX's memory you used:
- 5346 strings out of 493105
- 77608 string characters out of 6137073
- 155919 words of memory out of 5000000
- 8708 multiletter control sequences out of 15000+600000
- 11120 words of font info for 39 fonts, out of 8000000 for 9000
+ 5361 strings out of 493105
+ 77903 string characters out of 6137073
+ 155953 words of memory out of 5000000
+ 8722 multiletter control sequences out of 15000+600000
+ 11881 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,8n,38p,836b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
-.pfb>
-Output written on informe.pdf (5 pages, 660145 bytes).
+ 38i,8n,38p,924b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on informe.pdf (7 pages, 696191 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 99 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

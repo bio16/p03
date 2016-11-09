@@ -2,4 +2,6 @@
 \select@language {spanish}
 \contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{1}
 \contentsline {section}{\numberline {2}Partici\IeC {\'o}n en clusters}{1}
-\contentsline {section}{\numberline {3}Relaci\'on entre g\'enero y estructura de comunidades}{4}
+\contentsline {section}{\numberline {3}Relaci\'on entre comunidades}{2}
+\contentsline {subsection}{\numberline {3.1}Relaci\'on de las comunas con g\'enero}{4}
+\contentsline {section}{\numberline {4}Conclusiones}{5}

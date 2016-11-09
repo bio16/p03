@@ -22,11 +22,10 @@ y definimos la informaci\'on mutua normalizada:
 \label{eq:info_mutua_norm}
 \end{align}
 
-Las comunas construidas en el presente grafo fueron deducidas usando los algoritmos {\it greedy, betweenness, infomap} y {\it louvain}.
-La definici\'on \ref{eq:info_mutua} cuantifica cuanto se departa la informaci\'on real del grafo, respecto de la cantidad de informaci\'on que brinda una grafo cuyas comunas estan descorrelacionadas del g\'enero. \jmc{che Seba, a ver si esto tiene sentido}.
+Las comunas construidas en el presente grafo fueron deducidas usando los algoritmos {\it greedy, betweenness, infomap} y {\it louvain}. La definici\'on \ref{eq:info_mutua} cuantifica en cuánto coinciden las particiones obtenidas por dos algoritmos diferentes.
 %--- valor de In en dos casos extremos
-En el caso particular en que los conjuntos $\{c1\}$ y $\{c2\}$ representen variable independientes, entonces se dice que el conjunto $\{c1\}$ no da brinda ninguna informaci\'on sobre el conjunto $\{c2\}$, y de acuerdo a la ec. \ref{eq:info_mutua_norm} obtenemos $I_n=0$.
-Y en el caso particular en que $\{c1\}$ y $\{c2\}$ son el mismo conjunto, obtenemos la informaci\'on mutua normalizada $I_n=1$.
+En el caso particular en que los conjuntos $\{c1\}$ y $\{c2\}$ estén descorrelacionados, entonces se dice que el conjunto $\{c1\}$ no brinda ninguna informaci\'on sobre el conjunto $\{c2\}$, y de acuerdo a la ec. \ref{eq:info_mutua_norm} obtenemos $I_n=0$.
+Y en el caso particular en que $\{c1\}$ y $\{c2\}$ son el mismo conjunto, obtenemos la informaci\'on mutua normalizada $I_n=1$, es decir, dos algoritmos diferentes encuentran exactamente la misma comuna.
 
 
 \jmc{Raul, creo q lo tuyo encaja antes de esta linea?}\\
@@ -39,8 +38,10 @@ En la figura \ref{fig:prob_conj} mostramos, en el encabezado de cada panel, los 
 %--- test de consistencia
 Como test de consistencia para esto  \'ultimo, hicimos sorteos del g\'enero de cada nodo(manteniendo constante el n\'umero total de masculinos y femeninos por separado), y contabilizamos el n\'umero de enlaces entre pares de g\'eneros distintos $n_ig$.
 En la figura \ref{fig:hist_sort_sex} mostramos un histograma de $n_ig$, y en l\'inea negra el valor asociado para la red real (original).
-De aqui vemos que el valor de la red real esta apartado $\sim 1 \sigma$ del valor medio del histograma; lo cual significa que hay una ligera tendencia a que las comunas tengan muchos ejemplares de un sexo en particular.
+De aqui vemos que el valor de la red real esta apartado $\sim 1 \sigma$ del valor medio del histograma; lo cual significa que hay una ligera tendencia a que las comunas tengan muchos ejemplares de un sexo en particular. 
 Esto \'ultimo es consistente con el bajo valor de $I_n$ discutido mas arriba.
+Sin embargo, la diferencia no parece ser significativa: la probabilidad de obtener el valor actual de número de links entre delfines de distinto género y misma comuna, dada una distribución de sexos al azar, es de aproximadamente 5\%, por lo tanto no es tan improbable obtener este valor en una asignación aleatoria de géneros.
+
 
 
 %--- prob conjunta `p12` para c/algoritmo
@@ -51,7 +52,7 @@ Esto \'ultimo es consistente con el bajo valor de $I_n$ discutido mas arriba.
     \img{0.5}{p12_infomap}
     \img{0.5}{p12_louvain}
     \caption{
-    Valores de las matrices de probabilidad conjunto para los algoritmos {\it greedy} (izquierda, arriba) {\it betweenness} (derecha, arriba), {\it infomap} (izquierda, abajo) y {\it louvain} (derecha, abajo). 
+    Valores de las matrices de probabilidad conjunta para los algoritmos {\it greedy} (izquierda, arriba) {\it betweenness} (derecha, arriba), {\it infomap} (izquierda, abajo) y {\it louvain} (derecha, abajo). 
     }
 \label{fig:prob_conj}
 \end{figure}
