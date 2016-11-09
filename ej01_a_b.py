@@ -105,10 +105,10 @@ for i in range(1000):
         random_silhouette.append(sil)
 
 plt.figure(1)
-plt.hist(random_modularity, normed = True)
+plt.hist(random_modularity, normed = True, alpha=0.6)
 
 plt.figure(2)
-plt.hist(random_silhouette, normed = True)
+plt.hist(random_silhouette, normed = True, alpha=0.6)
 
 # ----- Edge betweenness community detection ----- #
 
@@ -140,10 +140,10 @@ for i in range(1000):
         random_silhouette.append(sil)
 
 plt.figure(1)
-plt.hist(random_modularity, normed = True)
+plt.hist(random_modularity, normed = True, alpha=0.6)
 
 plt.figure(2)
-plt.hist(random_silhouette, normed = True)
+plt.hist(random_silhouette, normed = True, alpha=0.6)
 
 # ----- Infomap community detection ----- #
 
@@ -173,10 +173,10 @@ for i in range(1000):
         random_silhouette.append(sil)
 
 plt.figure(1)
-plt.hist(random_modularity, normed = True)
+plt.hist(random_modularity, normed = True, alpha=0.6)
 
 plt.figure(2)
-plt.hist(random_silhouette, normed = True)
+plt.hist(random_silhouette, normed = True, alpha=0.6)
 
 
 # ----- Louvain community detection ----- #
@@ -208,10 +208,10 @@ for i in range(1000):
         random_silhouette.append(sil)
 
 plt.figure(1)
-plt.hist(random_modularity, normed = True)
+plt.hist(random_modularity, normed = True, alpha=0.6)
 
 plt.figure(2)
-plt.hist(random_silhouette, normed = True)
+plt.hist(random_silhouette, normed = True, alpha=0.6)
 
 plt.figure(1)
 plt.xlabel('Modularidad', fontsize = 20)

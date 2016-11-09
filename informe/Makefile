@@ -1,7 +1,7 @@
 .PHONY: all informe figs
 src=informe
 
-default: informe all
+default: all
 	
 informe:
 	pdflatex ${src}.tex
