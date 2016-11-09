@@ -1,7 +1,0 @@
-\select@language {spanish}
-\select@language {spanish}
-\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{1}
-\contentsline {section}{\numberline {2}Partici\IeC {\'o}n en clusters}{1}
-\contentsline {section}{\numberline {3}Relaci\'on entre comunidades}{4}
-\contentsline {subsection}{\numberline {3.1}Comparaci\'on entre algoritmos de reconocimiento de comunidades}{5}
-\contentsline {subsection}{\numberline {3.2}Relaci\'on de las comunas con g\'enero}{6}

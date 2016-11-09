@@ -40,6 +40,8 @@ colours = ['blue','red','green','yellow','orange', 'cyan']
 
 graph_aux = deepcopy(graph)
 
+
+# Definicion de silhouette
 def silhouette(graph_aux2, membership):
     silhouette_per_vertex = []
     membership_set = set(membership)
