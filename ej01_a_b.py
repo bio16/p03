@@ -6,6 +6,7 @@ import igraph
 import pandas as pd
 from copy import deepcopy
 import matplotlib.pyplot as plt
+import random
 from random import shuffle
 import numpy as np
 import math
@@ -72,6 +73,7 @@ def silhouette(graph_aux2, membership):
 
 
 # ----- Fast greedy community detection ----- #
+random.seed(123457)
 com = graph.community_fastgreedy()
 clustering = com.as_clustering()
 membership = clustering.membership
@@ -80,6 +82,7 @@ for i in range(len(graph.vs)):
     graph.vs[i]["color"] = colours[membership[i]]
 
 # Grafo
+random.seed(123457)
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'graph_Fast_greedy.png')
 
@@ -93,11 +96,11 @@ plt.figure(2)
 plt.axes([0.10, 0.20, 0.80, 0.70])
 
 # Modularidad y solhouette en red recableada
+random.seed(123457)
 graph_aux = deepcopy(graph)
 random_modularity = []
 random_silhouette = []
 for i in range(1000):
-    print(i)
     graph_aux.rewire(1000)
     random_modularity.append(graph_aux.modularity(membership))
     sil = silhouette(graph_aux, membership)
@@ -112,6 +115,7 @@ plt.hist(random_silhouette, normed = True, alpha=0.6)
 
 # ----- Edge betweenness community detection ----- #
 
+random.seed(123457)
 com = graph.community_edge_betweenness(directed = False)
 clustering = com.as_clustering()
 membership = clustering.membership
@@ -120,6 +124,7 @@ for i in range(len(graph.vs)):
     graph.vs[i]["color"] = colours[membership[i]]
 
 # Grafo
+random.seed(123457)
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'graph_Edge_betweenness.png')
 
@@ -129,6 +134,7 @@ print('Silhouette:', silhouette(graph, set(membership)))
 
 
 # Modularidad y solhouette en red recableada
+random.seed(123457)
 graph_aux = deepcopy(graph)
 random_modularity = []
 random_silhouette = []
@@ -147,6 +153,7 @@ plt.hist(random_silhouette, normed = True, alpha=0.6)
 
 # ----- Infomap community detection ----- #
 
+random.seed(123457)
 com = graph.community_infomap()
 membership = com.membership
 for i in range(len(graph.vs)):
@@ -154,6 +161,7 @@ for i in range(len(graph.vs)):
     graph.vs[i]["color"] = colours[membership[i]]
 
 # Grafo
+random.seed(123457)
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'graph_Infomap.png')
 
@@ -162,6 +170,7 @@ print('Infomap modularity: ', graph.modularity(membership))
 print('Silhouette:', silhouette(graph, set(membership)))
 
 # Modularidad y solhouette en red recableada
+random.seed(123457)
 graph_aux = deepcopy(graph)
 random_modularity = []
 random_silhouette = []
@@ -181,6 +190,7 @@ plt.hist(random_silhouette, normed = True, alpha=0.6)
 
 # ----- Louvain community detection ----- #
 
+random.seed(123457)
 com = graph.community_multilevel()
 membership = com.membership
 for i in range(len(graph.vs)):
@@ -188,6 +198,7 @@ for i in range(len(graph.vs)):
     graph.vs[i]["color"] = colours[membership[i]]
 
 # Grafo
+random.seed(123457)
 layout = graph.layout_fruchterman_reingold()
 igraph.plot(graph, layout = layout, target = 'graph_Louvain.png')
 
@@ -196,11 +207,11 @@ print('Louvain: ', graph.modularity(membership))
 print('Silhouette:', silhouette(graph, set(membership)))
 
 # Modularidad y solhouette en red recableada
+random.seed(123457)
 graph_aux = deepcopy(graph)
 random_modularity = []
 random_silhouette = []
 for i in range(1000):
-    print(i)
     graph_aux.rewire(1000)
     random_modularity.append(graph_aux.modularity(membership))
     sil = silhouette(graph_aux, membership)
