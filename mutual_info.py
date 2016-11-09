@@ -6,12 +6,13 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from itertools import combinations
+import matplotlib
 
 
 graph = igraph.read('dolphins.gml')
 
 #dolphins_sex = pd.read_table('dolphinsGender.txt', header = None)
-
+plt.style.use(['seaborn-ticks'])
 
 P = pd.DataFrame({})
 
@@ -22,6 +23,7 @@ P['fastgreedy'] = community.membership
 
 # Community: Infomap
 community = graph.community_infomap()
+print(community)
 P['infomap'] = community.membership
 
 # Community: Louvain 
@@ -32,24 +34,32 @@ P['louvain'] = community.membership
 community = graph.community_edge_betweenness(directed = False).as_clustering()
 P['edge_betweeness'] = community.membership
 
+print(np.unique(P['infomap'].values))
 
 partition_list = ['fastgreedy','infomap','louvain','edge_betweeness']
 
-fig,subplot = plt.subplots(nrows=1,ncols=4,sharey=True,sharex=False)
 
 Proba = {}
 for i,partition in enumerate(P.keys()):
+    fig,subplot = plt.subplots(nrows=1,ncols=1,sharey=True,sharex=False)
     bins = np.arange(max(P[partition])+2)-.5
-    sns.distplot(P[partition],ax=subplot[i], kde=False, rug=True, norm_hist=True, bins=bins)
-    xticks = subplot[i].get_xticks()
+    sns.distplot(P[partition],ax=subplot, kde=False, rug=True, norm_hist=True, bins=bins)
+    xticks = subplot.get_xticks()
 
+    
     centers = map(lambda x: int(x) if x==int(x) else '',xticks)
-    subplot[i].set_xticklabels(centers)
+    subplot.set_xticklabels(centers)
    
     proba,bins = np.histogram(P[partition],bins=bins,normed=True)
     Proba[partition] = proba
+    subplot.set_xlim(xmin=-0.5)
+    for item in ([subplot.title, subplot.xaxis.label, subplot.yaxis.label] +
+                         subplot.get_xticklabels() + subplot.get_yticklabels()):
+            item.set_fontsize(28)
+    subplot.set_ylabel('Probabilidad')
 
-plt.savefig('label_probability.pdf')
+    plt.tight_layout()
+    plt.savefig('informe/figuras/'+partition+'_probability.pdf')
 
 P['node'] = range(len(P))
 
@@ -65,13 +75,25 @@ def join_probability(partition1,partition2):
 def matrix_plot(partition1,partition2):
     matrix = join_probability(partition1,partition2)
     fig,subplot = plt.subplots(nrows=1,ncols=1,sharey=True,sharex=False)
-    cax = subplot.imshow(matrix, interpolation='none',cmap=sns.cubehelix_palette(8, start=.5, rot=-.75, as_cmap=True))
+    cmap = sns.cubehelix_palette(8, start=.5, rot=-.75, as_cmap=True)
+
+    cmap = plt.cm.get_cmap('Greys')
+    cax = subplot.imshow(matrix, interpolation='none',cmap=cmap)
     subplot.grid(b=False)
     cbar = fig.colorbar(cax)
-    cbar.ax.set_ylabel('Probabilidad')
+    cbar.ax.set_ylabel('Probabilidad',fontsize=20)
+    cbar.ax.tick_params(labelsize=20)
     yticks = subplot.get_yticks()
     subplot.set_yticklabels( map(lambda x: int(x) if x==int(x) else '',yticks) )
-    fig.savefig('join_proba_'+'-'.join([partition1,partition2])+'.pdf')
+    
+    subplot.set_xlabel('comunidad '+p1)
+    subplot.set_ylabel('comunidad '+p2)
+
+    for item in ([subplot.title, subplot.xaxis.label, subplot.yaxis.label] +
+                         subplot.get_xticklabels() + subplot.get_yticklabels()):
+            item.set_fontsize(28)
+    plt.tight_layout()
+    fig.savefig('informe/figuras/join_proba_'+'-'.join([partition1,partition2])+'.pdf')
 
 
 def shared_info(p1,p2,norm=True):
@@ -97,6 +119,8 @@ def shared_info(p1,p2,norm=True):
 
 for (p1,p2) in combinations(partition_list,2):
     print(p1,p2,'shared info:',shared_info(p1,p2))
+    matrix_plot(p1,p2)
+
 
 
 
