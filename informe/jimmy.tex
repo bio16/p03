@@ -1,41 +1,51 @@
 %--- commands/defs
 \newcommand{\img}[2]{\includegraphics[scale=#1]{{#2}.png}}
 \newcommand{\jmc}[1]{{\color{red}{(JM: #1)}}}   % jimmy comment
+\newcommand{\cm}[1]{{\color{blue}{(RB \& MC: #1)}}}   % raul & mari comment
 
 
 
 %--- doc
+\newpage
 \section{Relaci\'on entre comunidades}
 \label{sec:info_mutua}
 
 %Para cuantificar la relaci\'on entre el g\'enero de los delfines y la estructura de comunidades que fueron deducidas por los diferentes algoritmos (e.g. {\it Greedy}), empleamos la definici\'on de {\it Informacion Mutua}:
-Para cuantificar la relaci\'on entre comunidades de la red, definidas por dos conjuntos etiquetas de la red, $\{c1\}$ y $\{c2\}$, podemos usar la definici\'on de {\it Informacion Mutua}:
+%Para cuantificar la relaci\'on entre comunidades de la red, definidas por dos conjuntos etiquetas de la red, $\{c1\}$ y $\{c2\}$, podemos usar la definici\'on de {\it Informacion Mutua}:
+A trav\'es del \'indice de \textit{Informaci\'on Mutua} podemos cuantificar la 
+similitud entre particiones, de  comunidades de la red, definidas por dos 
+conjuntos etiquetas $\{C_1\}$ y $\{C_2\}$. Este est\'a dado por
 \begin{align}
-    I(\{c1\},\{c2\}) = \sum_{c1,c2} p(c1,c2) log \frac{p(c1,c2)}{p(c1) p(c2)},
+    I(\{C_1\},\{C_2\}) = \sum_{C_1 ,C_2} p(C_1,C_2) \log \frac{p(C_1,C_2)}{p(C_1) p(C_2)},
 \label{eq:info_mutua}
 \end{align}
-
-y definimos la informaci\'on mutua normalizada:
+o su versi\'on normalizada
 \begin{align}
-    I_n (\{c1\},\{c2\}) &= 2 I(\{c1\},\{c2\}) / ( H(\{c1\}) + H(\{c2\}) ) \nonumber \\
-    H(\{c1\}) &= - \sum_{c1} p(c1) log(p(c1))
-\label{eq:info_mutua_norm}
+    \label{eq:info_mutua_norm}
+    I_n (\{C_1\},\{C_2\}) &= \frac{ 2 I(\{C_1\},\{C_2\}) }{  H(\{C_1\}) + H(\{C_2\}) }  \\
+    \intertext{donde}
+    H(C) &= - \sum_{c_i \in C} p(c_i) \log(p(c_i))
 \end{align}
+es la informaci\'on total de la partici\'on $C\equiv \{c_i\}$.
 
-Las comunas construidas en el presente grafo fueron deducidas usando los algoritmos {\it greedy, betweenness, infomap} y {\it louvain}.
+
+
+Las comunas construidas en el presente grafo fueron deducidas usando los algoritmos {\it greedy, betweenness, infomap} y {\it louvain} \cm{Esto me parece que que es redundante\ldots y el siguiente parrafo no lo entendemos}.
 La definici\'on \ref{eq:info_mutua} cuantifica cuanto se departa la informaci\'on real del grafo, respecto de la cantidad de informaci\'on que brinda una grafo cuyas comunas estan descorrelacionadas del g\'enero. \jmc{che Seba, a ver si esto tiene sentido}.
 %--- valor de In en dos casos extremos
-En el caso particular en que los conjuntos $\{c1\}$ y $\{c2\}$ representen variable independientes, entonces se dice que el conjunto $\{c1\}$ no da brinda ninguna informaci\'on sobre el conjunto $\{c2\}$, y de acuerdo a la ec. \ref{eq:info_mutua_norm} obtenemos $I_n=0$.
-Y en el caso particular en que $\{c1\}$ y $\{c2\}$ son el mismo conjunto, obtenemos la informaci\'on mutua normalizada $I_n=1$.
+En el caso particular en que los conjuntos $\{C_1\}$ y $\{C_2\}$ representen variable independientes, entonces se dice que el conjunto $\{C_1\}$ no da brinda ninguna informaci\'on sobre el conjunto $\{C_2\}$, y de acuerdo a la ec. \ref{eq:info_mutua_norm} obtenemos $I_n=0$.
+Y en el caso particular en que $\{C_1\}$ y $\{C_2\}$ son el mismo conjunto, obtenemos la informaci\'on mutua normalizada $I_n=1$.
+
+\subsection{Comparaci\'on entre algoritmos de reconocimiento de comunidades}
+\input{parte_c}
 
 
-\jmc{Raul, creo q lo tuyo encaja antes de esta linea?}\\
 \subsection{Relaci\'on de las comunas con g\'enero}
 \label{sec:relacion_con_genero}
 
-Para cuantificar la relaci\'on entre las comunas deducidas por los diferentes algoritmos (e.g. {\it greedy}) y el g\'enero, usamos la ec. \ref{eq:info_mutua_norm} identificando a las comunas con $\{c1\}$ y a las etiquetas de g\'enero con $\{c2\}$.
+Para cuantificar la relaci\'on entre las comunas deducidas por los diferentes algoritmos (e.g. {\it greedy}) y el g\'enero, usamos la ec. \ref{eq:info_mutua_norm} identificando a las comunas con $\{C_1\}$ y a las etiquetas de g\'enero con $\{C_2\}$.
 %--- ahora veamos nuestro caso
-En la figura \ref{fig:prob_conj} mostramos, en el encabezado de cada panel, los valores de la informaci\'on mutua $I_n$, los cuales caen en el intervalo $(0.10 - 0.21)$, es decir que $I_n \ll 1$ en todos los casos; esto nos dice que el conjunto de comunas ($\{c1\}$) deducido por cierto algoritmo (e.g. {\it greedy}) no nos da mucha informaci\'on sobre el g\'enero ($\{c2\}$).
+En la figura \ref{fig:prob_conj} mostramos, en el encabezado de cada panel, los valores de la informaci\'on mutua $I_n$, los cuales caen en el intervalo $(0.10 - 0.21)$, es decir que $I_n \ll 1$ en todos los casos; esto nos dice que el conjunto de comunas ($\{C_1\}$) deducido por cierto algoritmo (e.g. {\it greedy}) no nos da mucha informaci\'on sobre el g\'enero ($\{C_2\}$).
 %--- test de consistencia
 Como test de consistencia para esto  \'ultimo, hicimos sorteos del g\'enero de cada nodo(manteniendo constante el n\'umero total de masculinos y femeninos por separado), y contabilizamos el n\'umero de enlaces entre pares de g\'eneros distintos $n_ig$.
 En la figura \ref{fig:hist_sort_sex} mostramos un histograma de $n_ig$, y en l\'inea negra el valor asociado para la red real (original).
