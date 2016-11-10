@@ -58,9 +58,10 @@ para los diferentes algoritmos utilizados.}
 de cada par de algotirmos.}
 \end{figure}
 
-La \textit{Informaci\'on Mutua} total, normalizada, es mostrada en la 
+El valor medio (de 1000 iteraciones) de la \textit{Informaci\'on Mutua} total, normalizada, 
+es mostrada en la 
 Tabla \ref{tab:mi} de la cual se puede observar que los algoritmos {\it infomap}
-y {\it louvain} son los m\'as similares con una semejanza del $86.2\%$,  
+y {\it Edge Betweeness} son los m\'as similares con una semejanza del $86.1\%$,  
 las rutinas {\it Fast Greedy} y {\it Edge Betweeness} muestran la menor correlaci\'on
 con una similitud del $66.2\%$ mientras que en general el resto coinciden en un rango 
 de $70\%-80\%$
@@ -74,9 +75,9 @@ de $70\%-80\%$
         \hline\hline
         &                 &  Fast Greedy    & Edge betweeness   & Infomap   & Louvain &  \\
         \hline
-        & Fast Greedy     & 1.000           & 0.662             & 0.767     & 0.794 \\
-        & Edge Betweeness &                 & 1.000             & 0.771     & 0.732 \\
-        & Infomap         &                 &                   & 1.000     & 0.862 \\
+        & Fast Greedy     & 1.000           & 0.662             & 0.782     & 0.794 \\
+        & Edge Betweeness &                 & 1.000             & 0.861     & 0.732 \\
+        & Infomap         &                 &                   & 1.000     & 0.783 \\
         & Louvain         &                 &                   &           & 1.000 \\
         \hline\hline
     \end{tabularx}

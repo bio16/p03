@@ -10,6 +10,8 @@ import math
 from pylab import figure, close
 import matplotlib.cm as cm
 import funcs as ff
+import random
+random.seed(123457)
 #--------------------------------------------------------
 
 # ------- Cargo la informacion del problema ------------- #

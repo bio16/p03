@@ -1,6 +1,6 @@
 \section{Partición en clusters}
 
-\par Implementamos diferentes algoritmos para la detección de comunidades en la red de delfines. La asignación de cada algoritmo se puede observar en la figura \ref{fig:Layouts_clusters}, en la cual se puede observar que todos los algoritmos detectan entre 4 y 6 comunidades presentes en la red, aunque en algunos casos aparecen comunidades compuestas por solo dos delfines, es decir, de un tamaño considerablemente menor que el las restantes, lo cual se podría considerar la absorción de esta pequeña comunidad por parte de otra de mayor tamaño.
+\par Implementamos diferentes algoritmos para la detección de comunidades en la red de delfines. La asignación de cada algoritmo se puede observar en la figura \ref{fig:Layouts_clusters}, en la cual se puede observar que todos los algoritmos detectan entre 4 y 5 comunidades presentes en la red, aunque en algunos casos aparecen comunidades compuestas por solo dos delfines, es decir, de un tamaño considerablemente menor que el las restantes, lo cual se podría considerar la absorción de esta pequeña comunidad por parte de otra de mayor tamaño.
 \par En la tabla \ref{table:Modularidad} calculamos la modularidad y el silhouette dada por cada algoritmo. Para cuantificar qué tan pertinente es la partición en clusters de esta red, estudiamos estos mismos observables recablenado en forma aleatoria la red original, manteniendo la membresía a las particiones inalterable. Eso nos resultó en una distribución de valores de modularidad y silhouette de la figura \ref{fig:Modularidad_random}. Si se compara esta distribución con los valores de la tabla \ref{table:Modularidad}, se puede concluir que tanto la modularidad como el silhouette es significativamente mayor en la red actual que la esperada por azar (hipótesis nula), con lo cual decimos que esta red se describir correctamente como una red compuesta por comunas.
 
 \begin{figure}
@@ -15,6 +15,8 @@
 
 \begin{table}
 \centering
+\caption{Modularidad y silhouette de las particiones dadas por diferentes algoritmos.}
+\label{table:Modularidad}
 \begin{tabular}{c c c}
 \hline \hline
 Algoritmo & Modularidad & Silhouette \\
@@ -25,8 +27,6 @@ Louvain & 0.519 & 0.294 \\
 Infomap & 0.529 & 0.328 \\
 \hline\hline
 \end{tabular}
-\caption{Modularidad y silhouette de las particiones dadas por diferentes algoritmos.}
-\label{table:Modularidad}
 \end{table}
 
 \begin{figure}

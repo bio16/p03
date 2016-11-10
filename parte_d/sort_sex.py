@@ -13,6 +13,8 @@ import funcs as ff
 import random
 import matplotlib.patches as patches
 import matplotlib.transforms as transforms
+import random
+random.seed(123457)
 #--------------------------------------------------------
 
 # ------- Cargo la informacion del problema ------------- #
